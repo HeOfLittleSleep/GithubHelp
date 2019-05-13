@@ -21,10 +21,30 @@
 		
 		var countStr = "";
 		
+		var today =  new Date();
+		
+		
+		
+		var Heritage = new Array("01", "14", "10", "00");
+		var SpringDay = new Array("05", "21", "12", "00");
+		var Independence = new Array("07", "04", "21", "00");
+		var SummerBash = new Array("09", "01", "12", "00");
+		var Holiday = new Array("12", "01", "11", "30");
+		var NewYear = new Array("12", "31", "15", "30");
+		
+		var NowTime = new Array(today.getMonth()+1, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+		
+		
+		
 		function showCountdown()
 		{
-			countStr = "something";
-			document.getElementById("count1").value = countStr;
+			countStr = NowTime;
+			document.getElementById("count1").value = countdown(Heritage, NowTime);
+			document.getElementById("count2").value = countdown(SpringDay, NowTime);
+			document.getElementById("count3").value = countdown(Independence, NowTime);
+			document.getElementById("count4").value = countdown(SummerBash, NowTime);
+			document.getElementById("count5").value = countdown(Holiday, NowTime);
+			document.getElementById("count6").value = countdown(NewYear, NowTime);
 		}
    </script>
 </head>
@@ -69,11 +89,6 @@
    <td><input value="Jan 14 at 10:00 a.m." readonly="readonly" size="20" /></td>
    <td><input name="count1" id="count1" size="40" /></td>
 </tr>
-
-<script type="text/javascript">
-	showCountdown()
-</script>
-
 <tr>
    <td><input value="Spring Day Rally" readonly="readonly" size="20" /></td>
    <td><input value="May 21 at 12:00 p.m." readonly="readonly" size="20" /></td>
@@ -100,7 +115,8 @@
 </tr>
 
 <script type="text/javascript">
-	document.getElementById("thisDay").value = showDateTime(time);
+	document.getElementById("thisDay").value = showDateTime(today);
+	showCountdown();
 </script>
 
 </table>
